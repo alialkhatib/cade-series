@@ -1,0 +1,18 @@
+.header {
+  padding: 20px;
+  background: #00543C;
+  color: white;
+  font-size: 30px;
+}
+
+/*.orgtitle {
+  text-align:right;
+}*/
+
+.talk_abstract {
+  font-size:1.4em;
+}
+
+a:hover.text-white {
+  text-decoration: none;
+}
