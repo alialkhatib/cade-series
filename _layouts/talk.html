@@ -83,19 +83,15 @@ layout: cade-default
 {% endif %}
 
     {% if sp.picture %}
-  {% assign outwardURL = "://" %}
-    {% assign toCheck = sp.picture | split: outwardURL %}
-
-    {% if sp.picture contains "://" %}
-      {% assign profileURL= sp.picture %}
-    {% else %}
-      {% assign profileURL= site.cadeprefix | append: "/" | append: sp.picture %}
-
-      {% endif %}
 
     <div class="row">
       <div class="col">
+{% if sp.picture contains "://" %}
+      {% assign profileURL= sp.picture %}
 
+    {% else %}
+      {% assign profileURL= site.cadeprefix | append: sp.picture %}
+      {% endif %}
 
         <img alt="picture of {{sp.speaker_name}}" src="{{profileURL}}" class="img-responsive img-fluid w-100">
       </div>
