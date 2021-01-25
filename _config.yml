@@ -36,6 +36,8 @@ collections:
     output: true
 
 
+cadeprefix: ""
+
 defaults:
   -
     scope:

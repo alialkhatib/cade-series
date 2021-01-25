@@ -1,10 +1,10 @@
 ---
-layout: default
+layout: cade-default
 ---
 
 <div class="row">
   <div class="col">
-    <a href=".">
+    <a href="/{{site.cadeprefix}}">
     <i class="fas fa-arrow-left"></i>
     return to all talks</a>
   </div>
@@ -44,7 +44,7 @@ layout: default
         <i>{{sp.affiliation}}</i>
         {% if sp.speaker_url  %}
             <br>
-            <a target="_blank" href="./{{sp.speaker_url }}">
+            <a target="_blank" href="{{sp.speaker_url }}">
             website <i class="fas fa-external-link-alt"></i>
             </a>
           {% endif %}
@@ -83,10 +83,21 @@ layout: default
 {% endif %}
 
     {% if sp.picture %}
-  
+  {% assign outwardURL = "://" %}
+    {% assign toCheck = sp.picture | split: outwardURL %}
+
+    {% if sp.picture contains "://" %}
+      {% assign profileURL= sp.picture %}
+    {% else %}
+      {% assign profileURL= site.cadeprefix | append: "/" | append: sp.picture %}
+
+      {% endif %}
+
     <div class="row">
       <div class="col">
-        <img alt="picture of {{sp.speaker_name}}" src="{{sp.picture}}" class="img-responsive img-fluid w-100">
+
+
+        <img alt="picture of {{sp.speaker_name}}" src="{{profileURL}}" class="img-responsive img-fluid w-100">
       </div>
     </div>
 
