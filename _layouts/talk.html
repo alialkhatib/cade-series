@@ -2,47 +2,28 @@
 layout: cade-default
 permalink: /talks/index.html
 ---
-
 <div class="row">
   <div class="col">
     <a href="/{{site.cadeprefix}}">
     <i class="fas fa-arrow-left"></i>
     return to all talks</a>
   </div>
-
-<div class="col text-right">
-  {% if page.event_url != nil %}
-<a class="h4" target="_blank" href="{{page.event_url}}">Register here <i class="fas fa-external-link-alt"></i></a>
-{% else %}
-<span class="h4">Check back for a registration link</span>
-{% endif %}
 </div>
-</div>
-
-
 <div class="row">
   <div class="col">
     {{page.slug | date: "%B %d, %Y"}} at {{ page.talk_time | default: "2:30pm PST"}}
   </div>
 </div>
-
-
 <div class="row">
 {%for sp in page.speaker_info %}
-
   {% if page.speaker_info.size > 1 %}
-
-<div class="col d-lg-none">
+  <div class="col d-lg-none">
   <hr>
 </div>
-
 <div class="col-lg-6">
-
-
-  {% else %}
+    {% else %}
   <div class="col-12">
 {% endif %}
-
     <div class="row">
       <div class="col-md-9 col-12 col-sm-8">
         <h1 class="display-4">
@@ -59,8 +40,7 @@ permalink: /talks/index.html
           {% endif %}
       </div>
     </div>
-
-    <div class="row my-4">
+        <div class="row my-4">
       <div class="col-12">
         <h4>{{sp.talk_title | default: "Talk title TBA"}}</h4>
       </div>
@@ -69,13 +49,10 @@ permalink: /talks/index.html
   <div class="row">
   
 {% if page.speaker_info.size > 1%}
-
   <div class="col-12">
-
-{% else %}
+    {% else %}
   <div class="col-md-6 col-lg-12 col-xl-6 col-12">
 {% endif %}
-
     <div class="row">
       <div class="col">
         {{sp.abstract | default: "abstract coming soon" | markdownify}}
@@ -84,31 +61,23 @@ permalink: /talks/index.html
   </div>
   
 {% if page.speaker_info.size > 1%}
-
   <div class="col-12">
-
-{% else %}
+    {% else %}
   <div class="col-md-6 col-lg-12 col-xl-6 col-12">
 {% endif %}
-
     {% if sp.picture %}
-
-    <div class="row">
+        <div class="row">
       <div class="col">
 {% if sp.picture contains "://" %}
       {% assign profileURL= sp.picture %}
-
-    {% else %}
+          {% else %}
       {% assign profileURL= site.cadeprefix | append: sp.picture %}
       {% endif %}
-
-        <img alt="picture of {{sp.speaker_name}}" src="{{profileURL}}" class="img-responsive img-fluid w-100">
+              <img alt="picture of {{sp.speaker_name}}" src="{{profileURL}}" class="img-responsive img-fluid w-100">
       </div>
     </div>
-
-    {% endif %}
-
-    <div class="row">
+        {% endif %}
+        <div class="row">
       <div class="col">
         <div class="font-italic speaker-bio">
         {{sp.bio | markdownify }}
@@ -116,18 +85,21 @@ permalink: /talks/index.html
       </div>
     </div>
   </div>
-
-
 </div>
 </div>
-
+</div>
+<!-- </div> -->
+</div>
+</div>
 {% endfor %}
-
-</div>
 </div>
 
-</div>
-
-
+<div class="row">
+  <div class="col text-right">
+  {% if page.event_url != nil %}
+<a class="h4" target="_blank" href="{{page.event_url}}">Register here <i class="fas fa-external-link-alt"></i></a>
+{% else %}
+<span class="h4">Check back for a registration link</span>
+{% endif %}
 </div>
 </div>
